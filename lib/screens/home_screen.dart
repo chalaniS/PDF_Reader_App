@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pdf_reader/screens/reader_screen.dart';
 import '../models/document_model.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -37,7 +38,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   Column(
                     children: Document.doc_list
                         .map((doc) => ListTile(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            ReaderScreen(doc)));
+                              },
                               title: Text(
                                 doc.doc_title!,
                                 style: GoogleFonts.nunito(),
